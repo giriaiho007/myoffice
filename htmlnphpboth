@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Letter Entry </title>
+</head>
+
+<body background="../images/background/mybg.jpg">
+<h1 style="color:#FFFFFF;font-size:26px; font-family:'Courier New', Courier, monospace">Wel come Sir  .....seems like you got new letter .. </h1><br/>
+<h1 style="color:#FFFFFF;font-size:22px; font-family:'Courier New', Courier, monospace">please fill the letter details sir..</h1><br/><br/>
+<form name='form' method='post' enctype="multipart/form-data" >
+<input type="checkbox" name="table" value="letter_entry" checked><i style="color:#CCCCCC"> you are making entry in letterentry database </i><br><br/>
+<label style="color:#FFFFFF">1. Letter LPO Number </label> <input type="text" name="lpono" id="lpo" required ><br/><br/>
+<label style="color:#FFFFFF">2. Letter dATE </label> <input type="text" name="ldate" id="datel" required  ><br/><br/>
+<label style="color:#FFFFFF">3. Letter RECEIVED DATE </label> <input type="lrdate" name="rdate" id="lponumber" required  ><br/><br/>
+<label style="color:#FFFFFF">4. Letter FROM ADDRESS </label> <input type="laddress" name="address" id="lponumber" required  ><br/><br/>
+<label style="color:#FFFFFF">5. Letter SUBJECT  </label> <input type="text" name="lsubject" id="subject" required ><br/><br/>
+<label style="color:#FFFFFF">6. REMARKS </label> <input type="text" name="lremark" id="remarks" required  ><br/><br/>
+<input type="submit" name="submit" value="Submit">  
+</form>
+
+
+<?php
+if(isset($_POST['submit'])){ 
+$servername = "localhost";
+$username = "root";
+$password = "ironman";
+$dbname="office_work";
+//mysql_set_charset('utf-8');
+$table_name=$_POST['table'];
+$lpo_number=$_POST['lpono'];
+$letter_date=$_POST['ldate'];
+$letter_received_date=$_POST['rdate'];
+$letter_from_address=$_POST['address'];
+$subject=$_POST['lsubject'];
+$remarks=$_POST['lremark'];
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+	
+} 
+$sql = "INSERT INTO $table_name(`lpo_number`, `letter_date`, `letter_received_date`, `letter_from_address`, `subject`, `remarks`) VALUES ($lpo_number,'$letter_date','$letter_received_date','$letter_from_address','$subject','$remarks')";
+
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+	header('Location: '. letterentry);
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+}
+?>
+
+</body>
+</html>
