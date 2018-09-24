@@ -12,14 +12,21 @@ height:100px;
 border:#FF0000;
 border:double
 }
+.tb{background-color:#CCFFCC;
+width:400px;
+height:50px;
+border:#FF0000;
+border:double
+}
+
 </style>
 
 </head>
 
 <body bgcolor="#99FFFF">
-<h1> Wel Come to Myoffice</h1>
+<h1 align="center"> Wel Come to Myoffice</h1>
 <form action="phpfiles/databaseentry.php" method="post">
- <table border="1">
+ <table border="2" bordercolor="#330099">
  
  <tr><td><label>1.Type Of Letter</label>
  <select name="modeofreceive">
@@ -34,20 +41,20 @@ border:double
   </select>
   
 <br/><br/><br/></td>
-  </tr>
- <tr><td><label>2.LPO_NUBER</label>
+  
+ <td><label>2.LPO_NUBER</label>
  <input type="text" name="lponumber" id="lpo"/><br/><br/><br/></td></tr>
  <tr><td><label>3.Complaint Number/Letter number/mail-id</label>
- <input type="text" name="rnumber" id="rnum"/><br/><br/><br/></td></tr>
- <tr><td><label>4.Letter Date</label>
+ <textarea class="tb" name="rnumber" id="rnum"></textarea><br/><br/><br/></td>
+ <td><label>4.Letter Date</label>
  <input type="text" name="ldate" id="ld"/><br/><br/><br/></td></tr>
 <tr><td> <label>5.Received Date</label>
- <input type="text" name="rdate" id="rd"/><br/><br/><br/></td></tr>
-<tr><td> <label>6.From address</label>
+ <input type="text" name="rdate" id="rd"/><br/><br/><br/></td>
+<td> <label>6.From address</label>
  <textarea class="ta" name="letteraddress"></textarea><br/><br/></td></tr>
 <tr><td><label>7.Subject</label>
- <textarea class="ta" name="subject"></textarea><br/><br/></td></tr>
-<tr><td><label>8.Remarks</label>
+ <textarea class="ta" name="subject"></textarea><br/><br/></td>
+<td><label>8.Remarks</label>
  <textarea class="ta" name="remarks"></textarea><br/><br/></td></tr>
 <tr><td><button type="submit" value="SUBMIT">SUBMIT</button>___________________<button type="reset" value="RESET">RESET</button></td></tr>
 </table>
